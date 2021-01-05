@@ -1,3 +1,6 @@
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.IOSMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,9 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.IOSMobileCapabilityType;
-
 public class IosSampleTest {
     protected IOSDriver<WebElement> driver;
     protected WebDriverWait wait;
@@ -24,7 +24,10 @@ public class IosSampleTest {
     public void setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(CapabilityType.PLATFORM_NAME, Platform.IOS);
-        caps.setCapability(IOSMobileCapabilityType.APP_NAME, "com.apple.Home");
+        caps.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.apple.springboard");
+        caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 11");
+        //caps.setCapability(IOSMobileCapabilityType.SHOW_XCODE_LOG, true);
         caps.setCapability("autoLaunch", false);
         driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), caps);
         wait = new WebDriverWait(driver, 10);
