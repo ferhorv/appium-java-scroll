@@ -1,0 +1,40 @@
+ANDROID SCROLL
+bottom.safe.zone.in.dp=0
+top.safe.zone.in.dp=47
+duration.per.dp=26
+android.ignore.unimportant.views.between.scrolling.rounds=true
+
+IOS SCROLL
+bottom.safe.zone.in.dp=15
+top.safe.zone.in.dp=49
+duration.per.dp=10
+ios.snapshot.max.depth.between.scrolling.rounds=15
+
+COMMON SCROLL
+search.strategy=EXPLORATIVE
+rounds=2
+round.timeout=2000
+length.percentage=100
+x.position.percentage=50
+
+
+ANDROID EXECUTION
+swipe.duration.per.dp=10
+fling.duration.per.dp=3
+target.platform.versions=any
+logging.properties=platformName,platformVersion,osVersion,udid,deviceScreenSize,pixelRatio,deviceModel,deviceName,app
+desired.log.types=server,bugreport,logcat,client
+press.duration=5 (press.duration=1)
+long.press.duration=2000
+is.video.recording.enabled=false
+
+IOS EXECUTION
+swipe.duration.per.dp=5
+fling.duration.per.dp=1
+target.platform.versions=any
+logging.properties=platformName,platformVersion,udid,deviceModel,deviceName,app
+desired.log.types=server,performance,safariNetwork,safariConsole,client,syslog,crashlog
+swipe.duration.per.dp=5.5
+press.duration=5
+long.press.duration=2000
+is.video.recording.enabled=false
