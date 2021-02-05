@@ -162,8 +162,9 @@ public class Scroll {
     }
 
     private void adjustScrollUntilElementIsFullyScrolledIntoArea(Rectangle scrollArea, Rectangle elementRect, String direction) {
-        Point source = adjustPointForAndroidScroll(getNearEdgeOfRectByDirection(elementRect, direction), direction);
-        Point target = getNearEdgeOfRectByDirection(scrollArea, direction); // for the scroll area the near edge is actually the far edge as it is not a moving element but we reuse this method
+        int x = Math.round(scrollArea.getX() + scrollArea.getWidth() / 2f);
+        Point source = adjustPointForAndroidScroll(new Point(x, getNearEdgeOfRectByDirection(elementRect, direction).getY()), direction);
+        Point target = new Point(x, getNearEdgeOfRectByDirection(scrollArea, direction).getY()); // for the scroll area the near edge is actually the far edge as it is not a moving element but we reuse this method
         Duration duration = touchGesture.getDurationForSwipe(source, target, true);
         touchGesture.swipe(duration, source, target);
     }
